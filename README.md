@@ -57,6 +57,9 @@ Each list gets **one permanent URL**; the image behind it switches to a random i
 from that list every 48 hours (configurable). Use the URLs as collection cover images
 in AIOM
 
+<img width="1722" height="1013" alt="image" src="https://github.com/user-attachments/assets/ebae10c8-ad42-4053-8dc0-2131b9fde9d4" />
+
+
 - **Movies** → TMDB backdrops
 - **TV shows & anime series** → TVDB backgrounds (falls back to TMDB if TVDB has none)
 - Prefers textless art, cycles through every item before repeating, never repeats back-to-back
