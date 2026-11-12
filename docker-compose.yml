@@ -1,6 +1,6 @@
 services:
   cover-rotator:
-    image: ghcr.io/DanaramaPyjama/cover-rotator:latest
+    image: ghcr.io/danaramapyjama/cover-rotator:latest
     # build: .            # uncomment to build locally instead of pulling
     container_name: cover-rotator
     restart: unless-stopped
