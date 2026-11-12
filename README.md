@@ -112,6 +112,7 @@ Environment variables override the file.
 | `LISTS` | required | `key=username/slug`, one per line |
 | `BASE_URL` | `http://localhost:8099` | Public address, used only to display links |
 | `ROTATE_HOURS` | 48 | How often each cover changes |
+| `CACHE_SECONDS` | 900 | How long browsers/apps may cache a cover. `0` = always check with the server first (`no-cache`); the image is only re-sent when the pick has changed |
 | `SYNC_HOURS` | 0 | `0` = re-read a list from MDBList only when its cover is about to rotate (one API call per list per rotation). Set e.g. `24` to also sync on a fixed schedule |
 | `IMAGE_SIZE` | `w1280` | TMDB size: `w780`, `w1280`, `original` |
 | `FALLBACK_TO_TMDB` | true | Shows: use TMDB if TVDB has no background |
