@@ -12,6 +12,9 @@ A: I built this for myself, running on a private network.  There are no security
 Q: What support is offered?
 A: None.  I built it for personal use.  Feel free to use it, fork it whatever.  I will not be accepting PRs.  If you fork it and update it, please let me know as I may start using your version instead :D
 
+Q: Should I change anything in AIOMetadata?
+A: Yes you need to ensure you're using AIOM's poster proxy settings.  Also add your subdomain, for example covers.yourdomain.com as part of AIOM Image cache to create an exception (Reduce to 12 or 24 hours perhaps)
+
 Rotating, random landscape AIOMetadata "covers" for your [MDBList](https://mdblist.com) list-based collections.
 Each list gets **one permanent URL**; the image behind it switches to a random item
 from that list every 48 hours (configurable). Use the URLs as collection cover images
