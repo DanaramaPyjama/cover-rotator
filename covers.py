@@ -68,7 +68,8 @@ def load_config():
             cfg["lists"].append({"key": k.strip(), "source": src.strip()})
     cfg.setdefault("port", 8099)
     cfg.setdefault("rotate_hours", 48)
-    cfg.setdefault("sync_hours", 12)
+    cfg.setdefault("sync_hours", 0)              # 0 = only sync right before a rotation
+    cfg["sync_hours"] = max(0, cfg["sync_hours"])
     cfg.setdefault("image_size", "w1280")        # w780 | w1280 | original
     cfg.setdefault("data_dir", str(BASE / "data"))
     cfg.setdefault("base_url", f"http://localhost:{cfg['port']}")
@@ -93,6 +94,7 @@ for d in (ART, LISTS):
 
 LOCK = threading.RLock()
 PERIOD = CFG["rotate_hours"] * 3600
+MIN_SYNC_GAP = 3600      # in sync-on-rotate mode, don't re-fetch a list synced < 1h ago
 
 # --------------------------------------------------------------------------- state
 def _load_state():
@@ -379,11 +381,14 @@ def rotate(key, force=False, blocking=True):
         if not force and not due(key):
             return False
         items = load_items(key)
-        if not items:
+        age = time.time() - st.get("synced_at", 0)
+        limit = CFG["sync_hours"] * 3600 if CFG["sync_hours"] > 0 else MIN_SYNC_GAP
+        if not items or age >= limit:
             try:
-                sync_list(key); items = load_items(key)
+                sync_list(key)
+                items = load_items(key)
             except Exception as e:
-                log.error("cannot sync %s: %s", key, e)
+                log.warning("cannot sync %s (%s) - using cached list", key, e)
         if not items:
             return False
 
@@ -423,7 +428,7 @@ def worker():
         for key in list_defs():
             try:
                 st = STATE["lists"].get(key, {})
-                if time.time() - st.get("synced_at", 0) >= CFG["sync_hours"] * 3600:
+                if CFG["sync_hours"] > 0 and time.time() - st.get("synced_at", 0) >= CFG["sync_hours"] * 3600:
                     sync_list(key)
                 rotate(key)
             except Exception as e:
