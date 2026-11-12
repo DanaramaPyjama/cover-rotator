@@ -1,25 +1,54 @@
 # Cover Rotator
 
-Q: Is this AI Slop?
-A: Pretty much.  I can, and do write code but this would have taken me days on my own so, I saved time given this is for personal use and wrote an dtested it in a couple of hours.
+## FAQ
 
-Q: Can I use it?
-A: Feel free to use the code as per the licence.  This project is provided free, so please do not charge for this code
+<details>
+<summary><strong>Is this AI slop?</strong></summary>
 
-Q: Is it secure?
-A: I built this for myself, running on a private network.  There are no security controls baked in. It's designed for a single user to configure via env, and presents a web front end that shows you the lists, the images, and the media name and thats about it.
+Pretty much. I can, and do, write code, but this would have taken me days on my own. Since it's for personal use, I used AI to save time and had it written and tested in a couple of hours.
+</details>
 
-Q: What support is offered?
-A: None.  I built it for personal use.  Feel free to use it, fork it whatever.  I will not be accepting PRs.  If you fork it and update it, please let me know as I may start using your version instead :D
+<details>
+<summary><strong>Can I use it?</strong></summary>
 
-Q: Should I change anything in AIOMetadata?
-A: Yes you need to ensure you're using AIOM's poster proxy settings.  Also add your subdomain, for example covers.yourdomain.com as part of AIOM Image cache to create an exception (Reduce to 12 or 24 hours perhaps)
+Yes, feel free to use the code under the terms of the licence. It's provided free, so please don't charge for it.
+</details>
 
-Q: What about AIOStreams?
-A: If AIOmetadata is an addon in AIOStreams, you may also wish to prevent AIOStreams caching catalogues for addons.
+<details>
+<summary><strong>Is it secure?</strong></summary>
 
-Q: Why are the environment variables in the compose?
-A: Thats just how I prefer to do things.  Feel free to organise it how you like.  But you can just use the compose on its own right now.
+I built this for myself, running on a private network, so there are no security controls baked in. It's designed for a single user who configures it with environment variables. The web front end shows your lists, the cover images and the media names, and that's about it. The only protected action is `/rotate`, which needs the `ADMIN_TOKEN`.
+</details>
+
+<details>
+<summary><strong>What support is offered?</strong></summary>
+
+None, I built it for personal use. Use it, fork it, do what you like. I won't be accepting PRs. If you fork it and improve it, let me know, as I may start using your version instead. 😄
+</details>
+
+<details>
+<summary><strong>Why are the environment variables in the compose file?</strong></summary>
+
+That's just how I prefer to do things. Organise it however you like. The compose file works on its own as it is, with no separate config file needed.
+</details>
+
+### AIOMetadata / AIOStreams
+
+<details>
+<summary><strong>Should I change anything in AIOMetadata?</strong></summary>
+
+Yes:
+
+1. Make sure you're using AIOM's **poster proxy** settings.
+2. Add your subdomain (for example `covers.yourdomain.com`) to AIOM's **image cache** as an exception.
+3. Consider reducing the cache time to 12 or 24 hours.
+</details>
+
+<details>
+<summary><strong>What about AIOStreams?</strong></summary>
+
+If AIOMetadata is an addon in AIOStreams, you may also want to stop AIOStreams caching catalogues for addons.
+</details>
 
 Rotating, random landscape AIOMetadata "covers" for your [MDBList](https://mdblist.com) list-based collections.
 Each list gets **one permanent URL**; the image behind it switches to a random item
