@@ -40,8 +40,9 @@ That's just how I prefer to do things. Organise it however you like. The compose
 Yes:
 
 1. Make sure you're using AIOM's **poster proxy** settings.
-2. Add your subdomain (for example `covers.yourdomain.com`) to AIOM's **image cache** as an exception.
-3. Consider reducing the cache time to 12 or 24 hours.
+2. Add your subdomain (for example `covers.yourdomain.com`) to AIOM's **image cache** as an exception.  This 
+3. Consider reducing the cache time in that exception to 12 or 24 hours.  Or nothing if you want...
+4. If you sue the AIOS app, you may want to turn off the settings > Cache > Artwork etting too.
 </details>
 
 <details>
