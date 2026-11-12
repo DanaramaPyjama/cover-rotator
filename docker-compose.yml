@@ -1,0 +1,25 @@
+services:
+  cover-rotator:
+    image: ghcr.io/DanaramaPyjama/cover-rotator:latest
+    # build: .            # uncomment to build locally instead of pulling
+    container_name: cover-rotator
+    restart: unless-stopped
+    ports:
+      - "8099:8099"
+    environment:
+      MDBLIST_API_KEY: ${MDBLIST_API_KEY}
+      TMDB_API_KEY: ${TMDB_API_KEY}
+      TVDB_API_KEY: ${TVDB_API_KEY:-}
+      BASE_URL: ${BASE_URL:-http://localhost:8099}
+      ADMIN_TOKEN: ${ADMIN_TOKEN:-}
+      ROTATE_HOURS: ${ROTATE_HOURS:-48}
+      # one list per line:  key=mdblist-username/list-slug
+      LISTS: |
+        horror=yourusername/horror-films
+        comedy=yourusername/comedy-films
+        anime=yourusername/anime-watchlist
+    volumes:
+      - cover-data:/data
+
+volumes:
+  cover-data:

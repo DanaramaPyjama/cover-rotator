@@ -1,0 +1,18 @@
+{
+  "mdblist_api_key": "YOUR_MDBLIST_KEY",
+  "tmdb_api_key": "YOUR_TMDB_V3_KEY_OR_V4_READ_TOKEN",
+  "tvdb_api_key": "YOUR_TVDB_V4_KEY",
+  "tvdb_pin": "",
+  "fallback_to_tmdb": true,
+  "base_url": "http://192.168.1.50:8099",
+  "port": 8099,
+  "rotate_hours": 48,
+  "sync_hours": 12,
+  "image_size": "w1280",
+  "admin_token": "pick-a-random-string-or-leave-empty",
+  "lists": [
+    { "key": "marvel",     "source": "someuser/marvel-movies" },
+    { "key": "80s-horror", "source": "someuser/80s-horror" },
+    { "key": "by-id",      "source": "12345" }
+  ]
+}
