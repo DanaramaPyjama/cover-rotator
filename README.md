@@ -18,6 +18,9 @@ A: Yes you need to ensure you're using AIOM's poster proxy settings.  Also add y
 Q: What about AIOStreams?
 A: If AIOmetadata is an addon in AIOStreams, you may also wish to prevent AIOStreams caching catalogues for addons.
 
+Q: Why are the environment variables in the compose?
+A: Thats just how I prefer to do things.  Feel free to organise it how you like.  But you can just use the compose on its own right now.
+
 Rotating, random landscape AIOMetadata "covers" for your [MDBList](https://mdblist.com) list-based collections.
 Each list gets **one permanent URL**; the image behind it switches to a random item
 from that list every 48 hours (configurable). Use the URLs as collection cover images
