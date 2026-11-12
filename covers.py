@@ -33,6 +33,7 @@ ENV_MAP = {
     "PORT": "port", "ROTATE_HOURS": "rotate_hours", "SYNC_HOURS": "sync_hours",
     "IMAGE_SIZE": "image_size", "ADMIN_TOKEN": "admin_token", "DATA_DIR": "data_dir",
     "MIN_BACKDROP_WIDTH": "min_backdrop_width", "FALLBACK_TO_TMDB": "fallback_to_tmdb",
+    "CACHE_SECONDS": "cache_seconds",
 }
 
 def _num(v):
@@ -51,7 +52,7 @@ def load_config():
         v = os.environ.get(env)
         if v not in (None, ""):
             cfg[key] = v
-    for k in ("port", "rotate_hours", "sync_hours", "min_backdrop_width"):
+    for k in ("port", "rotate_hours", "sync_hours", "min_backdrop_width", "cache_seconds"):
         if k in cfg:
             cfg[k] = _num(cfg[k])
     if isinstance(cfg.get("fallback_to_tmdb"), str):
@@ -74,6 +75,7 @@ def load_config():
     cfg.setdefault("data_dir", str(BASE / "data"))
     cfg.setdefault("base_url", f"http://localhost:{cfg['port']}")
     cfg.setdefault("admin_token", "")
+    cfg.setdefault("cache_seconds", 900)         # 0 = always revalidate (no-cache)
     cfg.setdefault("min_backdrop_width", 1280)
     cfg.setdefault("tvdb_api_key", "")
     cfg.setdefault("tvdb_pin", "")               # only needed for subscriber-model keys
@@ -471,10 +473,12 @@ class H(BaseHTTPRequestHandler):
             if not f or not f.exists():
                 return self._send(503, b"no cover available yet", head=head)
             etag = f'"{st["file"]}-{int(st["picked_at"])}"'
+            secs = CFG["cache_seconds"]
+            cc = f"public, max-age={secs}" if secs > 0 else "no-cache"
             if self.headers.get("If-None-Match") == etag:
-                return self._send(304, b"", extra={"ETag": etag}, head=head)
+                return self._send(304, b"", extra={"ETag": etag, "Cache-Control": cc}, head=head)
             return self._send(200, f.read_bytes(), "image/jpeg", head=head, extra={
-                "ETag": etag, "Cache-Control": "public, max-age=900"})
+                "ETag": etag, "Cache-Control": cc})
 
         if parts[:1] == ["rotate"] and len(parts) == 2:
             q = urllib.parse.parse_qs(url.query)
