@@ -50,6 +50,8 @@ Yes:
 If AIOMetadata is an addon in AIOStreams, you may also want to stop AIOStreams caching catalogues for addons.
 </details>
 
+### Cover rotator main
+
 Rotating, random landscape AIOMetadata "covers" for your [MDBList](https://mdblist.com) list-based collections.
 Each list gets **one permanent URL**; the image behind it switches to a random item
 from that list every 48 hours (configurable). Use the URLs as collection cover images
