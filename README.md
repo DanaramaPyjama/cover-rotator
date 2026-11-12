@@ -119,5 +119,4 @@ cover-rotator → Package settings) so others can pull it without logging in.
 
 ## Credits
 
-Data from MDBList, TMDB and TVDB. This product uses the TMDB API but is not endorsed or
-certified by TMDB.
+Data from MDBList, TMDB and TVDB. Credits to AIOMetadata for providing an awesome platform
