@@ -59,6 +59,9 @@ in AIOM
 
 <img width="1722" height="1013" alt="image" src="https://github.com/user-attachments/assets/ebae10c8-ad42-4053-8dc0-2131b9fde9d4" />
 
+<img width="536" height="1021" alt="image" src="https://github.com/user-attachments/assets/c13a229c-e978-4216-a565-2d0165567408" />
+
+
 
 - **Movies** → TMDB backdrops
 - **TV shows & anime series** → TVDB backgrounds (falls back to TMDB if TVDB has none)
