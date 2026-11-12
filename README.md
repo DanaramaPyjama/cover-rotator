@@ -1,5 +1,17 @@
 # Cover Rotator
 
+Q: Is this AI Slop?
+A: Pretty much.  I can, and do write code but this would have taken me days on my own so, I saved time given this is for personal use and wrote an dtested it in a couple of hours.
+
+Q: Can I use it?
+A: Feel free to use the code as per the licence.  This project is provided free, so please do not charge for this code
+
+Q: Is it secure?
+A: I built this for myself, running on a private network.  There are no security controls baked in. It's designed for a single user to configure via env, and presents a web front end that shows you the lists, the images, and the media name and thats about it.
+
+Q: What support is offered?
+A: None.  I built it for personal use.  Feel free to use it, fork it whatever.  I will not be accepting PRs.  If you fork it and update it, please let me know as I may start using your version instead :D
+
 Rotating, random landscape AIOMetadata "covers" for your [MDBList](https://mdblist.com) list-based collections.
 Each list gets **one permanent URL**; the image behind it switches to a random item
 from that list every 48 hours (configurable). Use the URLs as collection cover images
