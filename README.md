@@ -1,9 +1,9 @@
 # Cover Rotator
 
-Rotating, random landscape "covers" for your [MDBList](https://mdblist.com) lists.
+Rotating, random landscape AIOMetadata "covers" for your [MDBList](https://mdblist.com) list-based collections.
 Each list gets **one permanent URL**; the image behind it switches to a random item
 from that list every 48 hours (configurable). Use the URLs as collection cover images
-in Plex, Jellyfin, Emby, Kometa, dashboards, etc.
+in AIOM
 
 - **Movies** → TMDB backdrops
 - **TV shows & anime series** → TVDB backgrounds (falls back to TMDB if TVDB has none)
